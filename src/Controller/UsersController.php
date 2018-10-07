@@ -8,8 +8,6 @@ use Cake\Event\Event;
 
 class UsersController extends AppController
 {
-    
-
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
@@ -18,7 +16,9 @@ class UsersController extends AppController
         // cause problems with normal functioning of AuthComponent.
         $this->Auth->allow(['add', 'logout']);
     }
-
+    public function home(){
+        
+    }
     public function index()
     {
         $this->set('users', $this->Users->find('all'));
