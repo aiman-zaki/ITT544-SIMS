@@ -56,7 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <div class="row">
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
-            <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
+            <p>Please be aware that this page will not be shown if you turna off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
         </div>
         <div id="url-rewriting-warning" class="alert url-rewriting">
             <ul>
