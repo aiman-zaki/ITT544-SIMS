@@ -26,14 +26,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <?= $this->Html->css('material-compiled.css') ?>
 </head>
 <body>
+
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
@@ -53,5 +49,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
     <footer>
     </footer>
+
+    <?= $this->Html->script('material-compiled.js') ?>
+    <script>
+        $(document).ready(function() {
+        $('.mdb-select').material_select();
+        });</script>
+
 </body>
 </html>

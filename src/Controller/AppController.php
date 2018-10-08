@@ -72,4 +72,8 @@ class AppController extends Controller
     {
         $this->Auth->allow(['index', 'view', 'display']);
     }
+    public function beforeRender(Event $event){
+    
+
+    }
 }
