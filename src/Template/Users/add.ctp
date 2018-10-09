@@ -1,16 +1,36 @@
 <!-- src/Template/Users/add.ctp -->
+<style>
+    .container{
+        padding-left:140px;
+    }
 
-<div class="users form">
-<?= $this->Form->create($user) ?>
+    @media only screen and (max-width:992px){
+        .container{
+            padding-left:0px;
+        }
+    }
+
+</style>
+<div class = "container">
+<?= $this->Form->create(($user),['class' => 'text-center border border-light p-5'])?>
     <fieldset>
         <legend><?= __('Add User') ?></legend>
-        <?= $this->Form->control('email
-        ') ?>
-        <?= $this->Form->control('password') ?>
+        <div class = "md-form">    
+            <?= $this->Form->control(('email'),[
+                'class' => ['form-control']
+                ])?>
+        </div>
+        <div class = "md-form">
+            <?= $this->Form->control(('password'),[
+                'class' => ['form-control']
+
+            ]) ?>
+        </div>
         <?= $this->Form->control('role', [
-            'options' => ['advisor' => 'Advisor', 'student' => 'Student']
+            'options' => ['advisor' => 'Advisor', 'student' => 'Student'],
+            'class' => ['mdb-select md-form']
         ]) ?>
    </fieldset>
-<?= $this->Form->button(__('Submit')); ?>
+<?= $this->Form->button(__('Submit'),['class' => 'btn btn-primary']); ?>
 <?= $this->Form->end() ?>
 </div>
