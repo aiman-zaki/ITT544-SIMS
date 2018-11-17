@@ -41,9 +41,7 @@ class PagesController extends AppController
 
     public function display(...$path)
     {
-        $auth = $this->Auth->user('id');
-        $this->set('auth',$auth);
-
+ 
         $count = count($path);
 
 

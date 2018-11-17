@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 class UsersController extends AppController
 {
@@ -58,6 +59,20 @@ class UsersController extends AppController
     {
         return $this->redirect($this->Auth->logout());
     }
+
+    public function profile(){
+        $sessionUser = $this->Auth->user();
+        $this->set('session_user',$sessionUser);
+
+        if($this->request->is('post')){
+            $usersTable = TableRegistery::get('Users');
+            $newUser = $this->request->data();
+            print_r($new_user);
+            $usersTable->save($user);
+            
+        }
+    }
+
 
 }
 

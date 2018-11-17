@@ -1,6 +1,6 @@
 <?php 
 
-echo $auth;
+print_r($session_user);
 
 ?>
 
