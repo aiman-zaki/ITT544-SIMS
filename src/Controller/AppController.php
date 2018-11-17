@@ -41,6 +41,8 @@ class AppController extends Controller
     {
         parent::initialize();
 
+        
+
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
@@ -67,6 +69,11 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        //user_session
+        $sessionUser = $this->Auth->user();
+        $this->set('session_user',$sessionUser);
+
     }
     public function beforeFilter(Event $event)
     {

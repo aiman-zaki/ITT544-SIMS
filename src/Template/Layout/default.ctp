@@ -34,6 +34,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <nav class = "navbar navbar-expand-lg navbar-dark primary-color" style = "margin-bottom:20px">
     <a class = "navbar-brand" href = "#"><?= $this->fetch('title') ?></a>
+    <div class = "dropdown ml-auto">
+        <button class="btn btn-outline-white btn-md dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><?php echo $session_user['email'] ?></button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Profile</a>
+            </div>
+    </div>
 </nav>
 
 <?= $this->Flash->render() ?>
