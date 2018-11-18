@@ -61,15 +61,20 @@ class UsersController extends AppController
     }
 
     public function profile(){
-        $sessionUser = $this->Auth->user();
-        $this->set('session_user',$sessionUser);
+        $id = $this->Auth->user('id');
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+        $this->set(compact('user'));
 
-        if($this->request->is('post')){
-            $usersTable = TableRegistery::get('Users');
-            $newUser = $this->request->data();
-            print_r($new_user);
-            $usersTable->save($user);
-            
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
     }
 
