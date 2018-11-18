@@ -32,7 +32,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <body>
 
-<nav class = "navbar navbar-expand-lg navbar-dark primary-color">
+<nav class = "navbar navbar-expand-lg navbar-dark primary-color" style = "margin-bottom:20px">
     <a class = "navbar-brand" href = "#"><?= $this->fetch('title') ?></a>
 </nav>
 
@@ -46,17 +46,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->script('material-compiled.js') ?>
     <script>
         $(document).ready(function() {
-        $('.mdb-select').material_select();
-        // SideNav Button Initialization
-        $(".button-collapse").sideNav();
-        // SideNav Scrollbar Initialization
-        var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-        Ps.initialize(sideNavScrollbar);
-        });
-        
-        
-        
-        </script>
+            $('.mdb-select').material_select()
+        })
+    </script>
 
 </body>
 </html>
