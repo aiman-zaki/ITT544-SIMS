@@ -32,19 +32,54 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <body>
 
-<nav class = "navbar navbar-expand-lg navbar-dark primary-color" style = "margin-bottom:20px">
-    <a class = "navbar-brand" href = "#"><?= $this->fetch('title') ?></a>
+<nav class = "navbar navbar-expand-lg navbar-dark primary-color">
+    <?php echo $this->Html->link($this->fetch('title'),'/',['class'=>'navbar-brand']) ?>
     <div class = "dropdown ml-auto">
-        <button class="btn btn-outline-white btn-md dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown"
+    <?php if($session_user['email'] != null){?>
+        <button class="btn btn-outline-white btn-md dropdown  mr-4" type="button" id="dropdownMenu1" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false"><?php echo $session_user['email'] ?></button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Profile</a>
+                <?php echo $this->Html->link('Profile','/users/profile',['class'=>'dropdown-item'])?>
+                <?php echo $this->Html->link('Logout','/users/logout',['class'=>'dropdown-item'])?>
+                <?Php echo $this->Html->link('History','',['class'=>'dropdown-item']) ?>
             </div>
+    <?php } else {?>
+        <div class="btn-group dropleft">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false">
+    Login
+  </button>
+  <div class="dropdown-menu">
+    <!-- Default form login -->
+<?= $this->Form->create(null,['class'=>'text-center border border-light p-5']) ?>
+
+
+<p class="h4 mb-4">Sign in</p>
+
+<!-- Email -->
+<?= $this->Form->control('email',['class'=>'form-control mb-4','id' => 'email', 'label' => '', 'placeholder'=>'Email']) ?>
+
+
+<!-- Password -->
+<?= $this->Form->control('password',['class'=>'form-control mb-4','id' => 'password','placeholder' => 'Password','label'=>''])?>
+
+
+
+<!-- Sign in button -->
+<?= $this->Form->button(__('Login'),['class' => 'btn btn-info btn-block my-4']); ?>
+<?= $this->Form->end() ?>
+<!-- Default form login -->
+  </div>
+  
+</div>
+
+
+    <?php } ?>
     </div>
 </nav>
 
 <?= $this->Flash->render() ?>
-    <div class="container">
+    <div class="container" style="margin-top:20px">
         <?= $this->fetch('content') ?>
     </div>
     <footer>

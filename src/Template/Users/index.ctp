@@ -6,7 +6,8 @@
                     <tr>
                         <th scope = "col">#</th>
                         <th scope = "col">Email</th>
-                        <th scope = "col">Password</th>
+                        <th scope = "col">First Name</th>
+                        <th scope = "col">Last Name</th>
                         <th scope = "col">Role</th>
                         <th scope = "col">Created</th>
                         <th scope = "col">Modified</th>
@@ -21,7 +22,8 @@
                 <tr>
                     <td><?= $this->Number->format($user->id) ?></td>
                     <td><?= h($user->email) ?></td>
-                    <td><?= h($user->password) ?></td>
+                    <td><?= h($user->fname) ?></td>
+                    <td><?= h($user->lname) ?></td>
                     <td><?= h($user->role) ?></td>
                     <td><?= h($user->created) ?></td>
                     <td><?= h($user->modified) ?></td>

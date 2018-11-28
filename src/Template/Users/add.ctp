@@ -21,6 +21,18 @@
                 ])?>
         </div>
         <div class = "md-form">
+            <?= $this->Form->control(('fname'),[
+                'class' => ['form-control']
+
+            ]) ?>
+        </div>
+        <div class = "md-form">
+            <?= $this->Form->control(('lname'),[
+                'class' => ['form-control']
+
+            ]) ?>
+        </div>
+        <div class = "md-form">
             <?= $this->Form->control(('password'),[
                 'class' => ['form-control']
 

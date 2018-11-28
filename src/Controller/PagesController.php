@@ -39,12 +39,12 @@ class PagesController extends AppController
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
 
+    public function index(){
+        
+    }
     public function display(...$path)
     {
- 
         $count = count($path);
-
-
         if (!$count) {
             return $this->redirect('/');
         }
@@ -52,7 +52,6 @@ class PagesController extends AppController
             throw new ForbiddenException();
         }
         $page = $subpage = null;
-
         if (!empty($path[0])) {
             $page = $path[0];
         }
@@ -70,6 +69,16 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
 
-   
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Invalid email or password, try again'));
+        }
+
+        
+
     }
 }
