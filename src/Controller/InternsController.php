@@ -52,6 +52,10 @@ class InternsController extends AppController{
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
         $this->Auth->allow(['add', 'logout']);
+
+        if($this->Auth->user('role') != 'intern'){
+            $this->Auth->deny();
+        }
     }
 }
 ?>

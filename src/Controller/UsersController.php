@@ -37,7 +37,7 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             // Prior to 3.4.0 $this->request->data() was used.
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            if($user['role'] == 'student'){
+            if($user['role'] == 'intern'){
                 if ($this->Users->save($user)) {
                     $interns = TableRegistry::get('Interns');
                     $intern = $interns->newEntity();
