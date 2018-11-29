@@ -44,10 +44,21 @@ class UsersController extends AppController
                     $intern->email = $user['email'];
                     $interns->save($intern);
                     $this->Flash->success(__('The user has been saved.'));
-                    return $this->redirect(['action' => 'add']);
+                    return $this->redirect(['action' => 'login']);
                 }
-                $this->Flash->error(__('Unable to add the user.'));
+               
+            }else if($user['role'] == 'advisor'){
+                if ($this->Users->save($user)){
+                    $advisors = TableRegistry::get('Advisors');
+                    $advisor = $advisors->newEntity();
+                    $advisor->email = $user['email'];
+                    $advisors->save($advisor);
+                    $this->Flash->success(__('The user has been saved.'));
+                    return $this->redirect(['action' => 'login']);
+                }
             }
+            $this->Flash->error(__('Unable to add the user.'));
+            
         }
         $this->set('user', $user);
     }

@@ -12,8 +12,14 @@
             <div class="list-group-item list-group-item-action active">
                 Details
             </div>
-            <?php echo $this->Html->link('Detail Information','/interns/profile',
-                                         ['class'=>'list-group-item list-group-item-action']) ?>
+            <?php if($session_user['role'] == 'intern') {
+                         echo $this->Html->link('Detail Information','/interns/profile',
+                            ['class'=>'list-group-item list-group-item-action']);
+             } else {
+                echo $this->Html->link('Detail Information','/advisors/profile',
+                ['class'=>'list-group-item list-group-item-action']);
+                 
+             }?>
             <a href="#!" class="list-group-item list-group-item-action">Reset Password</a>
             </div>
         </div>

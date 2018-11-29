@@ -51,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
   </button>
   <div class="dropdown-menu">
     <!-- Default form login -->
-<?= $this->Form->create(null,['class'=>'text-center border border-light p-5']) ?>
+<?= $this->Form->create(null,['class'=>'text-center p-5']) ?>
 
 
 <p class="h4 mb-4">Sign in</p>
