@@ -7,6 +7,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 
+
 class UsersController extends AppController
 {
     public function beforeFilter(Event $event)
@@ -36,11 +37,17 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             // Prior to 3.4.0 $this->request->data() was used.
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'add']);
+            if($user['role'] == 'student'){
+                if ($this->Users->save($user)) {
+                    $interns = TableRegistry::get('Interns');
+                    $intern = $interns->newEntity();
+                    $intern->email = $user['email'];
+                    $interns->save($intern);
+                    $this->Flash->success(__('The user has been saved.'));
+                    return $this->redirect(['action' => 'add']);
+                }
+                $this->Flash->error(__('Unable to add the user.'));
             }
-            $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
     }
