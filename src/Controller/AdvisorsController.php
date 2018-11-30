@@ -26,8 +26,8 @@ class AdvisorsController extends AppController{
 
     }
     public function profile(){  
-        $email = $this->Auth->user('email');
-        $advisor = $this->Advisors->get($email, [
+        $id = $this->Auth->user('id');
+        $advisor = $this->Advisors->get($id, [
             'contain' => []
         ]);
         $this->set(compact('advisor'));
@@ -40,6 +40,11 @@ class AdvisorsController extends AppController{
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
     }
+
+    public function mentee(){
+
+    }
+
 
     public function beforeFilter(Event $event)
     {
