@@ -4,12 +4,15 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-
+use Cake\ORM\TableRegistry;
 
 class InternsController extends AppController{
    
     public function index(){
+        $users = TableRegistry::get('Users');
+        $query = $users->find()->where(['role_id' => 2]);
 
+        $this->set('interns',$query->all());
     }
     public function login(){
 
@@ -17,8 +20,18 @@ class InternsController extends AppController{
     public function logout(){
 
     }
-    public function view(){
-
+    public function view($id = null)
+    {
+        $users = TableRegistry::get('Users');
+        $user = $users->get($id,[
+            'contain' => []
+        ]);
+        
+        $intern = $this->Interns->get($id, [
+            'contain' => []
+        ]);
+        $this->set('user',$user);
+        $this->set('intern', $intern);
     }
     public function add(){
 
@@ -27,8 +40,8 @@ class InternsController extends AppController{
 
     }
     public function profile(){  
-        $email = $this->Auth->user('email');
-        $intern = $this->Interns->get($email, [
+        $id = $this->Auth->user('id');
+        $intern = $this->Interns->get($id, [
             'contain' => []
         ]);
         $this->set(compact('intern'));
