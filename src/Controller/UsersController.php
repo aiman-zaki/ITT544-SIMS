@@ -104,7 +104,11 @@ class UsersController extends AppController
                      if(!file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/')){
                         mkdir('img/profile/'.$user['id'], 0777, true);
                      }
-                     move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/profile/'.$user['id'].'/' . $file['name']);
+                     //check current photo
+                     if(!file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg')){
+                        unlink(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg');
+                     }
+                     move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg');
 
                  }
 

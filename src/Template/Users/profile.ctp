@@ -24,10 +24,31 @@
             </div>
         </div>
         <div class = "col-md-9">
-            <div class = "card">    
+            <div class = "card">
+                
+            </div>    
                 <?= $this->Form->create($user,array('type' => 'file','class' => 'text-center border border-light p-5'))?>
                 <fieldset>
                     <legend><?= __('Profile') ?></legend>
+                    <div class="file-field">
+                    <div class="mb-4">
+                        <?php $text = null; 
+                            if(!file_exists(WWW_ROOT . 'img/profile/'.$session_user['id'].'/profile.jpg'))
+                        { ?>
+                            <img width="100px" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                        <?php $text = "Add Photo";
+                        } 
+                        else {?>
+                            <img width="150px" src="<?php echo '../img/profile/'.$session_user['id'].'/profile.jpg'?>"/>
+
+                        <?php $text = "Update Photo";
+                        }?>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="btn btn-mdb-color btn-rounded float-left">
+                            <?php echo $this->Form->input('upload', array('type'=>'file','class'=>'','label'=> $text)); ?>
+                        </div>
+                    </div>
                     <div class = "md-form">    
                     <?= $this->Form->control(('email'),[
                         'class' => ['form-control']
@@ -47,13 +68,8 @@
                     'options' => [1 => 'Advisor', 2 => 'Intern'],
                     'class' => ['mdb-select md-form']
                 ]) ?>
-                </fieldset>
-                <div class = "md-form">
-                    <div class = "file-path-wrapper">
-                        <?php echo $this->Form->input('upload', array('type'=>'file'),['class'=>'file-path validate']); ?>
-                    </div>
-                </div>
-                <?= $this->Form->button(__('Update'),['class'=>'btn btn-success']) ?>
+                </fieldset>               
+                <?= $this->Form->button(__('Update'),['class'=>'btn btn-block btn-success']) ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
