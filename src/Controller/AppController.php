@@ -40,14 +40,15 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
-        
-
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+            'authorize' => [
+                'TinyAuth.Tiny' => [
+                    ]
+                ],
             'loginRedirect' => [
                 'controller' => 'Pages',
                 'action' => 'display',
@@ -64,6 +65,7 @@ class AppController extends Controller
                 ]
             ],
         ]);
+        
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -81,6 +83,6 @@ class AppController extends Controller
     }
     public function beforeRender(Event $event){
     
-
     }
+
 }

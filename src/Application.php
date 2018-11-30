@@ -35,6 +35,8 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
+        $this->addPlugin('TinyAuth');
+
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 

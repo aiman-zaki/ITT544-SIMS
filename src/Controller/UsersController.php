@@ -10,6 +10,7 @@ use Cake\ORM\TableRegistry;
 
 class UsersController extends AppController
 {
+    
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
@@ -37,7 +38,7 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             // Prior to 3.4.0 $this->request->data() was used.
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            if($user['role'] == 'intern'){
+            if($user['role_id'] == 2){
                 if ($this->Users->save($user)) {
                     $interns = TableRegistry::get('Interns');
                     $intern = $interns->newEntity();
@@ -47,7 +48,7 @@ class UsersController extends AppController
                     return $this->redirect(['action' => 'login']);
                 }
                
-            }else if($user['role'] == 'advisor'){
+            }else if($user['role_id'] == 1){
                 if ($this->Users->save($user)){
                     $advisors = TableRegistry::get('Advisors');
                     $advisor = $advisors->newEntity();

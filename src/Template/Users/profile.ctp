@@ -12,8 +12,7 @@
             <div class="list-group-item list-group-item-action active">
                 Details
             </div>
-            <?php echo($session_user['role']) ?>
-            <?php if($session_user['role'] == 'intern') {
+            <?php if($session_user['role_id'] == 2) {
                          echo $this->Html->link('Detail Information','/interns/profile',
                             ['class'=>'list-group-item list-group-item-action']);
              } else {
@@ -44,8 +43,8 @@
                         'class' => ['form-control']
                         ])?>
                 </div>
-                <?= $this->Form->control('role', [
-                    'options' => ['advisor' => 'Advisor', 'intern' => 'Intern'],
+                <?= $this->Form->control('role_id', [
+                    'options' => [1 => 'Advisor', 2 => 'Intern'],
                     'class' => ['mdb-select md-form']
                 ]) ?>
                 </fieldset>

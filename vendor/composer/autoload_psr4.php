@@ -10,6 +10,7 @@ return array(
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'WyriHaximus\\TwigView\\' => array($vendorDir . '/wyrihaximus/twig-view/src'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
+    'TinyAuth\\' => array($vendorDir . '/dereuromark/cakephp-tinyauth/src'),
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),

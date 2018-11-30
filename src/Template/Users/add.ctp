@@ -38,8 +38,8 @@
 
             ]) ?>
         </div>
-        <?= $this->Form->control('role', [
-            'options' => ['advisor' => 'Advisor', 'intern' => 'Intern'],
+        <?= $this->Form->control('role_id', [
+            'options' => [1 => 'Advisor', 2 => 'Intern'],
             'class' => ['mdb-select md-form']
         ]) ?>
    </fieldset>
