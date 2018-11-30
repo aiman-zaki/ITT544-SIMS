@@ -42,7 +42,7 @@ class UsersController extends AppController
                 if ($this->Users->save($user)) {
                     $interns = TableRegistry::get('Interns');
                     $intern = $interns->newEntity();
-                    $intern->email = $user['email'];
+                    $intern->id = $user['id'];
                     $interns->save($intern);
                     $this->Flash->success(__('The user has been saved.'));
                     return $this->redirect(['action' => 'login']);
@@ -52,7 +52,7 @@ class UsersController extends AppController
                 if ($this->Users->save($user)){
                     $advisors = TableRegistry::get('Advisors');
                     $advisor = $advisors->newEntity();
-                    $advisor->email = $user['email'];
+                    $advisor->id = $user['id'];
                     $advisors->save($advisor);
                     $this->Flash->success(__('The user has been saved.'));
                     return $this->redirect(['action' => 'login']);
@@ -105,7 +105,7 @@ class UsersController extends AppController
                         mkdir('img/profile/'.$user['id'], 0777, true);
                      }
                      //check current photo
-                     if(!file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg')){
+                     if(file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg')){
                         unlink(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg');
                      }
                      move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg');
