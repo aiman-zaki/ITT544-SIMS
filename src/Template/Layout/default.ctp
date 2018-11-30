@@ -67,7 +67,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <!-- Sign in button -->
 <?= $this->Form->button(__('Login'),['class' => 'btn btn-info btn-block my-4']); ?>
+<?php echo $this->Html->link('Register','/users/add',['class'=>'btn btn-block btn-success'])?>
 <?= $this->Form->end() ?>
+
 <!-- Default form login -->
   </div>
   

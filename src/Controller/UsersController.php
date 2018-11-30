@@ -58,6 +58,7 @@ class UsersController extends AppController
                     return $this->redirect(['action' => 'login']);
                 }
             }
+
             $this->Flash->error(__('Unable to add the user.'));
             
         }
@@ -91,7 +92,23 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $file = $user['upload'];
+                $ext = substr(strtolower(strrchr($file['name'],'.')),1);
+                $arr_ext = array('jpg','jpeg','png');
+
+                 //only process if the extension is valid
+                 if(in_array($ext, $arr_ext))
+                 {
+                     //do the actual uploading of the file. First arg is the tmp name, second arg is
+                     //where we are putting it
+                     if(!file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/')){
+                        mkdir('img/profile/'.$user['id'], 0777, true);
+                     }
+                     move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/profile/'.$user['id'].'/' . $file['name']);
+
+                 }
+
+                return $this->redirect(['action' => 'profile']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }

@@ -25,7 +25,7 @@
         </div>
         <div class = "col-md-9">
             <div class = "card">    
-                <?= $this->Form->create(($user),['class' => 'text-center border border-light p-5'])?>
+                <?= $this->Form->create($user,array('type' => 'file','class' => 'text-center border border-light p-5'))?>
                 <fieldset>
                     <legend><?= __('Profile') ?></legend>
                     <div class = "md-form">    
@@ -48,6 +48,11 @@
                     'class' => ['mdb-select md-form']
                 ]) ?>
                 </fieldset>
+                <div class = "md-form">
+                    <div class = "file-path-wrapper">
+                        <?php echo $this->Form->input('upload', array('type'=>'file'),['class'=>'file-path validate']); ?>
+                    </div>
+                </div>
                 <?= $this->Form->button(__('Update'),['class'=>'btn btn-success']) ?>
                 <?= $this->Form->end() ?>
             </div>
