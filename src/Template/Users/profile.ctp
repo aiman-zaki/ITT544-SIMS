@@ -45,7 +45,7 @@
                         }?>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <div class="btn btn-mdb-color btn-rounded float-left">
+                        <div class="btn waves-effect btn-outline-primary btn-sm btn-rounded">
                             <?php echo $this->Form->input('upload', array('type'=>'file','class'=>'','label'=> $text)); ?>
                         </div>
                     </div>
