@@ -6,12 +6,12 @@
             <div class = "card card-cascade narrower">
                 <div class = "view view-cascade overlay">
                 <?php 
-                    if(!file_exists(WWW_ROOT . 'img/profile/'.$intern['id'].'/profile.jpg'))
+                    if(!file_exists(WWW_ROOT . 'img/users/profile/'.$intern['id'].'/profile.jpg'))
                         { ?>
                             <img width="100px" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="card-img-top z-depth-1-half avatar-pic" alt="example placeholder avatar">
                     
                     <?php } else {?>        
-                            <img width="100px" src="<?php echo './img/profile/'.$intern['id'].'/profile.jpg'?>" class = "card-img-top"/>
+                            <img width="100px" src="<?php echo 'http://localhost/cakeitt544/' . 'img/users/profile/'.$intern['id'].'/profile.jpg' ?>" class = "card-img-top"/>
                 <?php } ?>
                 </div>
                 <div class = "card-body card-body-cascade text-center">

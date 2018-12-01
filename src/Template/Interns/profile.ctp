@@ -1,10 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- */
-?>
-
 <div class = "container">
     <div class = "row">
         <div class = "col-md-3">
@@ -19,6 +12,16 @@
         <div class = "col-md-9">
             <div class = "card">    
             <?= $this->Form->create(($intern),['class' => 'text-center border border-light p-5'])?>
+                <div class = "md-form">    
+                    <?= $this->Form->control(('fname'),[
+                        'class' => ['form-control']
+                        ])?>
+                </div>
+                <div class = "md-form">    
+                    <?= $this->Form->control(('lname'),[
+                        'class' => ['form-control']
+                        ])?>
+                </div>
                 <div class = "md-form">    
                     <?= $this->Form->control(('cgpa'),[
                         'class' => ['form-control']
