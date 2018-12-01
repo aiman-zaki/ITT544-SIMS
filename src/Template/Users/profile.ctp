@@ -33,13 +33,13 @@
                     <div class="file-field">
                     <div class="mb-4">
                         <?php $text = null; 
-                            if(!file_exists(WWW_ROOT . 'img/profile/'.$session_user['id'].'/profile.jpg'))
+                            if(!file_exists(WWW_ROOT . 'img/users/profile/'.$session_user['id'].'/profile.jpg'))
                         { ?>
                             <img width="100px" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
                         <?php $text = "Add Photo";
                         } 
-                        else {?>
-                            <img width="150px" src="<?php echo '../img/profile/'.$user['id'].'/profile.jpg?' ?>"/>
+                        else { ?>
+                            <img width="150px" src="<?php echo '../img/users/profile/'.$user['id'].'/profile.jpg?'. $dm ?>"/>
 
                         <?php $text = "Update Photo";
                         }?>
@@ -54,15 +54,6 @@
                         'class' => ['form-control']
                         ])?>
                 </div>
-                <div class = "md-form">    
-                    <?= $this->Form->control(('fname'),[
-                        'class' => ['form-control']
-                        ])?>
-                </div>
-                <div class = "md-form">    
-                    <?= $this->Form->control(('lname'),[
-                        'class' => ['form-control']
-                        ])?>
                 </div>
                 <?= $this->Form->control('role_id', [
                     'options' => [1 => 'Advisor', 2 => 'Intern'],

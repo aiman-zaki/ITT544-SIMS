@@ -25,6 +25,7 @@ class AdvisorsController extends AppController{
     public function delete(){
 
     }
+ 
     public function profile(){  
         $id = $this->Auth->user('id');
         $advisor = $this->Advisors->get($id, [

@@ -19,6 +19,16 @@
         <div class = "col-md-9">
             <div class = "card">    
             <?= $this->Form->create(($advisor),['class' => 'text-center border border-light p-5'])?>
+            <div class = "md-form">    
+                    <?= $this->Form->control(('fname'),[
+                        'class' => ['form-control']
+                        ])?>
+                </div>
+                <div class = "md-form">    
+                    <?= $this->Form->control(('lname'),[
+                        'class' => ['form-control']
+                        ])?>
+                </div>
                 <div class = "md-form">    
                     <?= $this->Form->control(('room'),[
                         'class' => ['form-control']
