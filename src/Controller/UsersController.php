@@ -86,12 +86,12 @@ class UsersController extends AppController
             'contain' => []
         ]);
         $this->set(compact('user'));
-
+        $base_url = WWW_ROOT.'img/users/profile/'.$user['id'].'/';
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-
+                
                 $file = $user['upload'];
                 $ext = substr(strtolower(strrchr($file['name'],'.')),1);
                 $arr_ext = array('jpg','jpeg','png');
@@ -100,7 +100,7 @@ class UsersController extends AppController
                  //only process if the extension is valid
                  if(in_array($ext, $arr_ext))
                  {
-                     $base_url = WWW_ROOT.'img/profile/'.$user['id'].'/';
+                     
                      //do the actual uploading of the file. First arg is the tmp name, second arg is
                      //where we are putting it
                      if(!file_exists($base_url)){
@@ -110,16 +110,20 @@ class UsersController extends AppController
                      if(file_exists($base_url.'profile.jpg')){
                         unlink($base_url.'profile.jpg');
                      }
-                     #$dm = '?'.filemtime($base_url);
+                   
                      move_uploaded_file($file['tmp_name'], $base_url.'profile.jpg');
+                    
                    #  rename($base_url.'profile.jpg',$base_url.'profile.jpg'. $dm);
                      
                  }
 
                 return $this->redirect(['action' => 'profile']);
             }
+            
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
+        $dm = '?'.filemtime($base_url);
+        $this->set('dm',$dm);
     }
 
 
