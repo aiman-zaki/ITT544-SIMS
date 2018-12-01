@@ -39,7 +39,7 @@
                         <?php $text = "Add Photo";
                         } 
                         else {?>
-                            <img width="150px" src="<?php echo '../img/profile/'.$session_user['id'].'/profile.jpg'?>"/>
+                            <img width="150px" src="<?php echo '../img/profile/'.$user['id'].'/profile.jpg?' ?>"/>
 
                         <?php $text = "Update Photo";
                         }?>
