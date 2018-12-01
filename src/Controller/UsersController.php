@@ -96,20 +96,24 @@ class UsersController extends AppController
                 $ext = substr(strtolower(strrchr($file['name'],'.')),1);
                 $arr_ext = array('jpg','jpeg','png');
 
+    
                  //only process if the extension is valid
                  if(in_array($ext, $arr_ext))
                  {
+                     $base_url = WWW_ROOT.'img/profile/'.$user['id'].'/';
                      //do the actual uploading of the file. First arg is the tmp name, second arg is
                      //where we are putting it
-                     if(!file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/')){
-                        mkdir('img/profile/'.$user['id'], 0777, true);
+                     if(!file_exists($base_url)){
+                        mkdir($base_url, 0777, true);
                      }
                      //check current photo
-                     if(file_exists(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg')){
-                        unlink(WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg');
+                     if(file_exists($base_url.'profile.jpg')){
+                        unlink($base_url.'profile.jpg');
                      }
-                     move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/profile/'.$user['id'].'/profile.jpg');
-
+                     #$dm = '?'.filemtime($base_url);
+                     move_uploaded_file($file['tmp_name'], $base_url.'profile.jpg');
+                   #  rename($base_url.'profile.jpg',$base_url.'profile.jpg'. $dm);
+                     
                  }
 
                 return $this->redirect(['action' => 'profile']);
