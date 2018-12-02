@@ -90,7 +90,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->script('material-compiled.js') ?>
     <script>
         $(document).ready(function() {
-            $('.mdb-select').material_select()
+            $('.mdb-select').material_select();
+            $('.datepicker').pickadate({
+                format: 'yyyy-mm-dd',
+                formatSubmit: 'yyyy-mm-dd',
+                hiddenPrefix: 'prefix__',
+                hiddenSuffix: '__suffix'
+            });
         })
     </script>
 

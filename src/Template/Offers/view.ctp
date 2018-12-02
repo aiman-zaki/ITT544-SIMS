@@ -16,19 +16,41 @@
         <div class="mask rgba-white-slight"></div>
         <div class="card-body rounded-bottom">
             <div class = "row">
+                <div class = "col-md-8">
+                    <div class = "row">
+                        <div class = "col-md-4">
+                            <?php 
+                                        if(!file_exists(WWW_ROOT . 'img/users/profile/'.$session_user['id'].'/profile.jpg'))
+                                    { ?>
+                                        <img width="150px" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                                    <?php $text = "Add Photo";
+                                    } 
+                                    else { ?>
+                                        <img width="200px" src="<?php echo '../../img/users/profile/'.$session_user['id'].'/profile.jpg?'?>"/>
+                            <?php }?>
+                        </div>
+                        <div class = "col-md-8">
+                            <ul class = "list-group">
+                                <li class = "list-group-item">Start Date: <?= $offer['startdate']?></li>
+                                <li class = "list-group-item">End Date: <?= $offer['enddate']?></li>
+                            </ul>
+                        </div>
+          
+                    </div>
+                </div>
                 <div class = "col-md-4">
                     <div id="map"></div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class = "card card-cascade">
-        <div class = "view view-cascade gradient-card-header peach-gradient">
-            <h4 class="card-header-title h4-responsive"><strong>Requirements</strong></h4>
-        </div>
-        <div class="mask rgba-white-slight"></div>
-        <div class="card-body rounded-bottom">
-        <div id="map"></div>
+        <div class = "card card-cascade">
+            <div class = "view view-cascade gradient-card-header peach-gradient">
+                <h4 class="card-header-title h4-responsive"><strong>Requirements</strong></h4>
+            </div>
+            <div class="mask rgba-white-slight"></div>
+            <div class="card-body rounded-bottom">
+            <div id="map"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -37,8 +59,8 @@
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  let longitude = parseFloat("<?= $company['address_longitude'] ?>");
-  let latitude = parseFloat("<?= $company['address_latitude'] ?>");
+  let longitude = parseFloat("<?= $address['lng'] ?>");
+  let latitude = parseFloat("<?= $address['lat'] ?>");
   console.log(longitude);
   console.log(latitude);
   var uluru = {lat: latitude, lng: longitude};
@@ -56,7 +78,7 @@ function initMap() {
     * The callback parameter executes the initMap() function
     -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Lod_FvDhDW_yN4WEb0CQRH4rgtKQHHo&callback=initMap">
     </script>
   </body>
 </html>

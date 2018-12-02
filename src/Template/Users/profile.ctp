@@ -1,10 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- */
-?>
-
 <div class = "container">
     <div class = "row">
         <div class = "col-md-3">
@@ -15,10 +8,14 @@
             <?php if($session_user['role_id'] == 2) {
                          echo $this->Html->link('Detail Information','/interns/profile',
                             ['class'=>'list-group-item list-group-item-action']);
-             } else {
+             } else if($session_user['role_id'] == 1) {
                 echo $this->Html->link('Detail Information','/advisors/profile',
                 ['class'=>'list-group-item list-group-item-action']);
                  
+             } else if ($session_user['role_id'] == 3){
+                echo $this->Html->link('Detail Information','/companies/profile',
+                ['class'=>'list-group-item list-group-item-action']); 
+
              }?>
             <a href="#!" class="list-group-item list-group-item-action">Reset Password</a>
             </div>
@@ -55,10 +52,6 @@
                         ])?>
                 </div>
                 </div>
-                <?= $this->Form->control('role_id', [
-                    'options' => [1 => 'Advisor', 2 => 'Intern'],
-                    'class' => ['mdb-select md-form']
-                ]) ?>
                 </fieldset>               
                 <?= $this->Form->button(__('Update'),['class'=>'btn btn-block btn-success']) ?>
                 <?= $this->Form->end() ?>

@@ -22,26 +22,12 @@ class CompaniesController extends AppController
         // cause problems with normal functioning of AuthComponent.
         $this->Auth->allow(['add', 'logout']);
     }
-
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
     public function index()
     {
         $companies = $this->paginate($this->Companies);
 
         $this->set(compact('companies'));
     }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Company id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null)
     {
         $company = $this->Companies->get($id, [
@@ -50,12 +36,6 @@ class CompaniesController extends AppController
 
         $this->set('company', $company);
     }
-
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
     public function add()
     {
         $company = $this->Companies->newEntity();
@@ -70,14 +50,6 @@ class CompaniesController extends AppController
         }
         $this->set(compact('company'));
     }
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Company id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $company = $this->Companies->get($id, [
@@ -94,14 +66,6 @@ class CompaniesController extends AppController
         }
         $this->set(compact('company'));
     }
-
-    /**
-     * Delete method
-     *
-     * @param string|null $id Company id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
@@ -113,5 +77,29 @@ class CompaniesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function profile(){
+        $addresses = TableRegistry::get('Addresses');
+        $id = $this->Auth->user('id');
+        $company = $this->Companies->get($id, [
+            'contain' => []
+        ]);
+        $address = $addresses->get($id,[
+            'contain' => []
+        ]);
+        $this->set(compact('company'));
+        $this->set(compact('address'));
+        if ($this->request->is(['patch', 'post', 'put'])) {
+                $company = $this->Companies->patchEntity($company, $this->request->getData());
+                $address = $addresses->patchEntity($address,$this->request->getData());
+                if($this->Companies->save($company)){
+                    $addresses->save($address);
+                    $this->Flash->success(__('Data has been saved.'));
+                    return $this->redirect(['action' => 'profile']);
+                }
+                $this->Flash->error(__('The user could not be saved. Please, try again.'));  
+        }
+        
     }
 }

@@ -34,35 +34,47 @@ class UsersController extends AppController
     }
     public function add()
     {
+        $addresses = TableRegistry::get('addresses');
         $user = $this->Users->newEntity();
+        $address = $addresses->newEntity();
         if ($this->request->is('post')) {
-            // Prior to 3.4.0 $this->request->data() was used.
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            if($user['role_id'] == 2){
+           
                 if ($this->Users->save($user)) {
-                    $interns = TableRegistry::get('Interns');
-                    $intern = $interns->newEntity();
-                    $intern->id = $user['id'];
-                    $interns->save($intern);
-                    $this->Flash->success(__('The user has been saved.'));
-                    return $this->redirect(['action' => 'login']);
+                    if($user['role_id'] == 2){
+                        $interns = TableRegistry::get('Interns');
+                        $intern = $interns->newEntity();
+                        $intern->id = $user['id'];
+                        $address->id = $user['id'];
+                        $interns->save($intern);
+                        $addresses->save($address);
+                        $this->Flash->success(__('The user has been saved.'));
+                        return $this->redirect(['action' => 'login']);
+                    } else if($user['role_id'] == 1){
+                        $advisors = TableRegistry::get('Advisors');
+                        $advisor = $advisors->newEntity();
+                        $advisor->id = $user['id'];
+                        $address->id = $user['id'];
+                        $advisors->save($advisor);
+                        $addresses->save($address);
+                        $this->Flash->success(__('The user has been saved.'));
+                        return $this->redirect(['action' => 'login']);
+               
+                    } else if ($user['role_id'] == 3){
+                        $companies = TableRegistry::get('Companies');
+                        $company = $companies->newEntity();
+                        $company->id = $user['id'];
+                        $address->id = $user['id'];
+                        $companies->save($company);
+                        $addresses->save($address);
+                        $this->Flash->success(__('The user has been saved.'));
+                        return $this->redirect(['action' => 'login']);
+                     }
+                    $this->Flash->error(__('Unable to add the user.'));
                 }
                
-            }else if($user['role_id'] == 1){
-                if ($this->Users->save($user)){
-                    $advisors = TableRegistry::get('Advisors');
-                    $advisor = $advisors->newEntity();
-                    $advisor->id = $user['id'];
-                    $advisors->save($advisor);
-                    $this->Flash->success(__('The user has been saved.'));
-                    return $this->redirect(['action' => 'login']);
-                }
             }
-
-            $this->Flash->error(__('Unable to add the user.'));
-            
-        }
-        $this->set('user', $user);
+            $this->set('user', $user);
     }
     public function login()
     {
@@ -122,8 +134,10 @@ class UsersController extends AppController
             
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $dm = '?'.filemtime($base_url);
-        $this->set('dm',$dm);
+        if(file_exists($base_url)){
+            $dm = '?'.filemtime($base_url);
+            $this->set('dm',$dm);
+        }
     }
 
 

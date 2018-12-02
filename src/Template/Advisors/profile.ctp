@@ -34,6 +34,24 @@
                         'class' => ['form-control']
                         ])?>
                 </div>
+                <div class = "md-form">    
+                    <?= $this->Form->control(('address'),[
+                        'class' => ['form-control'],
+                        'value' => $address['address']
+                        ])?>
+                </div>
+                <div class = "md-form">    
+                    <?= $this->Form->control(('poscode'),[
+                        'class' => ['form-control'],
+                        'value' => $address['poscode']
+                        ])?>
+                </div>
+                <div class = "md-form">    
+                    <?= $this->Form->control(('state'),[
+                        'class' => ['form-control'],
+                        'value' => $address['state']
+                        ])?>
+                </div>
              <?= $this->Form->button(__('Update'),['class'=>'btn btn-success']) ?>
             <?= $this->Form->end() ?>
             </div>
