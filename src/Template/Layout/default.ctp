@@ -28,6 +28,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('material-compiled.css') ?>
+    <?= $this->Html->css('all.css') ?>
+    
    
 </head>
 <body>
@@ -88,6 +90,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </footer>
 
     <?= $this->Html->script('material-compiled.js') ?>
+    <?= $this->Html->script('all.min.js') ?>
     <script>
         $(document).ready(function() {
             $('.mdb-select').material_select();

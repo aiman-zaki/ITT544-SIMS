@@ -31,8 +31,9 @@
                         </div>
                         <div class = "col-md-8">
                             <ul class = "list-group">
-                                <li class = "list-group-item">Start Date: <?= $offer['startdate']?></li>
-                                <li class = "list-group-item">End Date: <?= $offer['enddate']?></li>
+                                <li class = "list-group-item"><h2 style="margin-bottom:20px"><span class="badge badge-primary">Descriptions</span></h2><?= $offer->description ?></li>
+                                <li class = "list-group-item"><h2 style="margin-bottom:20px"><span class="badge badge-primary">Start Date:</span></h2> <?= $offer['startdate']?></li>
+                                <li class = "list-group-item"><h2 style="margin-bottom:20px"><span class="badge badge-primary">End Date:</span></h2><?= $offer['enddate']?></li>
                             </ul>
                         </div>
           
@@ -42,14 +43,18 @@
                     <div id="map"></div>
                 </div>
             </div>
-        </div>
-        <div class = "card card-cascade">
-            <div class = "view view-cascade gradient-card-header peach-gradient">
-                <h4 class="card-header-title h4-responsive"><strong>Requirements</strong></h4>
-            </div>
-            <div class="mask rgba-white-slight"></div>
-            <div class="card-body rounded-bottom">
-            <div id="map"></div>
+            <div class = "card-body">
+                <div class = "row">
+                    <div class = "col-md-12">
+                        <h2 style="margin-bottom:20px"><span class="badge badge-primary">Requirements</span></h2>
+                    </div>
+                    <div class = "col-md-12">
+                        <ol>
+                            <li><?= $offer->requirement?></li>
+                        </ol>
+
+                    </div>
+                </div>
             </div>
         </div>
         <?php if($session_user['role_id'] == 2){ ?>

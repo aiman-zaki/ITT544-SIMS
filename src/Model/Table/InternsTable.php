@@ -10,10 +10,11 @@ class InternsTable extends Table{
     {
         $this->belongsTo('Users')
             ->setForeignKey('id');
-
         $this->hasMany('Applications');
-
-
+        $this->hasMany('Educations');
+        $this->hasMany('Achievements');
+        $this->belongsTo('Advisors')
+            ->foreignKey('advisor_id');
     }
   
 }

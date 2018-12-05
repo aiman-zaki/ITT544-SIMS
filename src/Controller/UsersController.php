@@ -41,11 +41,15 @@ class UsersController extends AppController
                 if ($this->Users->save($user)) {
                     if($user['role_id'] == 2){
                         $interns = TableRegistry::get('Interns');
+                        $educations = TableRegistry::get('Educations');
                         $intern = $interns->newEntity();
+                        $education = $educations->newEntity();
                         $intern->id = $user['id'];
                         $address->id = $user['id'];
+                        $education->id = $user['id'];
                         $interns->save($intern);
                         $addresses->save($address);
+                        $educations->save($education);
                         $this->Flash->success(__('The user has been saved.'));
                         return $this->redirect(['action' => 'login']);
                     } else if($user['role_id'] == 1){

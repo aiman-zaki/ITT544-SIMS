@@ -26,7 +26,7 @@
             </div>    
                 <?= $this->Form->create($user,array('type' => 'file','class' => 'text-center border border-light p-5'))?>
                 <fieldset>
-                    <legend><?= __('Profile') ?></legend>
+                    <h2 style="margin-bottom:20px"><span class="badge badge-primary">Profiles</span></h2>
                     <div class="file-field">
                     <div class="mb-4">
                         <?php $text = null; 

@@ -5,15 +5,15 @@ namespace App\Model\Table;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class OffersTable extends Table
+class RequirementsTable extends Table
 {
 
     public function initialize(array $config)
     {
-        $this->belongsTo('Company')
-            ->setForeignKey('company_id');
+        $this->belongsTo('Offers')
+            ->setForeignKey('offer_id');
 
-        $this->hasMany('Requirements');
+
     }
 
 }

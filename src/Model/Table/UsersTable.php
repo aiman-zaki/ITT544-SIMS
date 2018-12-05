@@ -9,7 +9,8 @@ class UsersTable extends Table
 {
     public function initialize(array $config)
     {
-        $this->hasOne('Addresses');
+        $this->hasOne('Addresses')
+            ->primaryKey('id');
     }
     public function validationDefault(Validator $validator)
     {
