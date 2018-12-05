@@ -34,6 +34,9 @@ class CompaniesTable extends Table
         $this->setTable('companies');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Offers');
+
     }
 
     /**

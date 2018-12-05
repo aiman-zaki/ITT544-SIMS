@@ -10,9 +10,10 @@ use Cake\I18n\Time;
 class OffersController extends AppController{
 
     public function index(){
+
         $id = $this->Auth->user('id');
         $role = $this->Auth->user('role_id');
-        if(!$role == 3){
+        if($role != 3){
             $this->set('offers', $this->Offers->find('all'));
         } else {
             $query = $this->Offers->find()->where(['company_id' => $id]);
@@ -76,16 +77,27 @@ class OffersController extends AppController{
             $this->Flash->error(__('You are not the owner'));
         }
         return $this->redirect(['action' => 'index']);
-
     }
+    public function applicant($id = null){
+        $interns = TableRegistry::get('Interns');
+
+        $users = $interns->find('all')
+                ->autoFields(true)
+                ->join([
+                    'table' => 'Applications',
+                    'alias' => 'a',
+                    'type' => 'inner',
+                    'conditions' => ['a.offer_id' => $id ],
+                ]);
+        $this->set('users',$users);
+        $this->set('offer_id',$id);
+    }
+
 
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        // Allow users to register and logout.
-        // You should not add the "login" action to allow list. Doing so would
-        // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+ 
     }
 }
 ?>

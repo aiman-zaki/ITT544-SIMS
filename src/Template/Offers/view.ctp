@@ -52,6 +52,12 @@
             <div id="map"></div>
             </div>
         </div>
+        <?php if($session_user['role_id'] == 2){ ?>
+            <?= $this->Form->create(null,['url'=> ['controller'=>'Applications','action'=>'add']])?>
+            <?= $this->Form->hidden(('offer_id'),['value'=> $offer['id']]) ?>
+            <?= $this->Form->button(__('Apply'),['class' => 'btn btn-info btn-block my-4']); ?>
+            <?= $this->Form->end() ?>
+        <?php }?> 
     </div>
 </div>
 
