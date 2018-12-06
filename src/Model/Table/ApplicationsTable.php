@@ -13,6 +13,7 @@ class ApplicationsTable extends Table{
             ->setForeignKey('intern_id');
         $this->belongsTo('Offers')
             ->setForeignKey('offer_id');
+        $this->hasMany('Comments');
     }
     public function validationDefault(Validator $validator)
     {

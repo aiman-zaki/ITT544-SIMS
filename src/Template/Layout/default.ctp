@@ -43,7 +43,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="dropdown-menu">
                 <?php echo $this->Html->link('Profile','/users/profile',['class'=>'dropdown-item'])?>
                 <?php echo $this->Html->link('Logout','/users/logout',['class'=>'dropdown-item'])?>
-                <?Php echo $this->Html->link('History','',['class'=>'dropdown-item']) ?>
+                <?php if($session_user['role_id'] == 2){
+                        echo $this->Html->link('History','/applications/list',['class'=>'dropdown-item']);
+                        }
+                ?>
             </div>
     <?php } else {?>
         <div class="btn-group dropleft">

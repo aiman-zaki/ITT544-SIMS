@@ -13,7 +13,8 @@ class OffersTable extends Table
         $this->belongsTo('Company')
             ->setForeignKey('company_id');
 
-        $this->hasMany('Requirements');
+        $this->hasMany('Requirements',['dependent' => true]);
+        $this->hasMany('Applications',['dependent' => true]);
     }
 
 }

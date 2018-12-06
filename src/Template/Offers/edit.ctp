@@ -34,6 +34,15 @@
 
             ]) ?>
         </div>
+        <?php foreach($offer->requirements as $requirement){ ?>
+        <div class = "md-form">
+            <?= $this->Form->control(' ',[
+                'class' => ['form-control'],
+                'value' => $requirement->requirements,
+                 'disabled' => true,
+            ]) ?>
+            </div>
+        <?php } ?>
         <div class = "md-form">
             <?= $this->Form->textarea(('description'),[
                 'class' => ['md-textarea form-control']
@@ -41,7 +50,24 @@
             <label for = "description">Description</label>
         </div>
 
-<?= $this->Form->button(__('Submit'),['class' => 'btn btn-primary']); ?>
+<?= $this->Form->button(('Update'),['class' => 'btn btn-primary']); ?>
+<?= $this->Form->end() ?>
+
+<?= $this->Form->create(null,['action'=>'addReq','class' => 'text-center border border-light p-5']) ?>
+<div class = "row">
+                <div class = "col-md-9">
+                    <div class = "md-form">
+                        <?= $this->Form->hidden('offer_id',['value'=>$offer_id]); ?>
+                        <?= $this->Form->control(('requirement'),[
+                            'class' => ['form-control']
+                        ]) ?>
+                    </div>
+                </div>
+                <div class = "col-md-3">
+                    <?= $this->Form->button('Add') ?>
+                </div>
+            </div>
+
 <?= $this->Form->end() ?>
 </div>
 

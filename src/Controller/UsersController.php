@@ -111,12 +111,11 @@ class UsersController extends AppController
                 $arr_ext = array('jpg','jpeg','png');
 
     
-                 //only process if the extension is valid
+        
                  if(in_array($ext, $arr_ext))
                  {
                      
-                     //do the actual uploading of the file. First arg is the tmp name, second arg is
-                     //where we are putting it
+                    //buat file
                      if(!file_exists($base_url)){
                         mkdir($base_url, 0777, true);
                      }

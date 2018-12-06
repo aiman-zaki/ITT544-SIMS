@@ -16,14 +16,19 @@ class ApplicationsController extends AppController{
         $this->request->allowMethod(['post','put']);
         $id = $this->Auth->user('id');
         $offer_id = $this->request->getData()['offer_id'];
-        $application = $this->Applications->newEntity();
-        $application->intern_id = $id;
-        $application->offer_id = $offer_id;
-        $application->status = "Pending";
-        $this->Applications->save($application);
-        return $this->redirect(['controller'=>'Offers','action' => 'index']);
+        $limit = $this->Applications->find()->where(['intern_id' => $id])->count();
+        if($limit < 3){
+            $application = $this->Applications->newEntity();
+            $application->intern_id = $id;
+            $application->offer_id = $offer_id;
+            $application->status = "Pending";
+            $this->Applications->save($application);
+            return $this->redirect(['controller'=>'Offers','action' => 'index']);
+        } else {
+            $this->Flash->error('You reached your limit to apply for any internship!');
+            return $this->redirect(['controller'=>'Offers','action' => 'view',$offer_id]);
+        }
     }
-
     public function view(){
 
     }
@@ -44,7 +49,12 @@ class ApplicationsController extends AppController{
         return $this->redirect(['controller'=>'Offers','action' => 'index']);
     }
 
-    public function deny($offer_id,$user_id){
+    public function deny($offer_id,$intern_id){
+        $this->request->allowMethod(['post', 'put']);
+        $application = $this->Applications->find()->where(['offer_id'=>$offer_id,'intern_id'=>$intern_id])->first();
+        $application->status = "Denied";
+        $this->Applications->save($application);
+        return $this->redirect(['controller'=>'Offers','action' => 'index']);
     
     }
 

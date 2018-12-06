@@ -65,6 +65,7 @@ class OffersController extends AppController{
     }
     public function delete($id = null){
         $this->request->allowMethod(['post', 'delete']);
+        $applications = TableRegistry::get('Applications');
         $offer = $this->Offers->get($id);
         $uid = $this->Auth->user('id');
         if($offer['company_id'] == $uid){
@@ -80,17 +81,48 @@ class OffersController extends AppController{
     }
     public function applicant($id = null){
         $interns = TableRegistry::get('Interns');
+        $applications = TableRegistry::get('Applications');
 
         $users = $interns->find('all')
-                ->autoFields(true)
                 ->join([
                     'table' => 'Applications',
                     'alias' => 'a',
                     'type' => 'inner',
-                    'conditions' => ['a.offer_id' => $id ],
-                ]);
+                    'conditions' => ['Interns.id = a.intern_id'],
+   
+                ])->where(['a.offer_id'=>$id])
+                  ->select(['Interns.id','Interns.fname','a.status']);
         $this->set('users',$users);
         $this->set('offer_id',$id);
+    }
+
+    public function edit ($id = null){
+        $offer = $this->Offers->get($id,['contain'=>'Requirements']);
+        if ($this->request->is(['patch', 'post', 'put'])){
+            $offer = $this->Offers->patchEntity($offer,$this->request->getData());
+            if($this->Offers->save($offer)){
+                $this->Flash->success("Offer is Updated");
+                return $this->redirect(['action' => 'edit',$id]);
+            }
+            $this->Flash->error("Cannot update data");
+
+        }
+        $this->set('offer',$offer);
+        $this->set('offer_id',$id);
+
+    }
+
+    public function addReq(){
+        $this->request->allowMethod(['post', 'delete']);
+        $requirements = TableRegistry::get('Requirements');
+        $requirement = $requirements->newEntity();
+        $id = $this->request->getData()['offer_id'];
+        $requirement->requirements = $this->request->getData()['requirement'];
+        $requirement->offer_id = $id;
+        $requirements->save($requirement);
+
+        return $this->redirect(['action' => 'edit',$id]);
+        
     }
 
 

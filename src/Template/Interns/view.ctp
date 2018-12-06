@@ -24,34 +24,44 @@
                 <div class = "card-body">
                 <h1><span style="margin-bottom:10px"class="badge badge-success">Biodata</span ></h1>
                 <div class = "row">
-                    <div class = "col-md-2">
-                        <h3><span style="margin-right:10px"class="badge badge-primary">Name : </span></h3>
+                    <div class = "col-md-3">
+                        <h4><span style="margin-right:10px"class="">Name : </span></h4>
                     </div>
-                    <div class = "col-md-10">
-                        <h3><?= $intern->fname ?> <?= $intern->lname ?></h3>
-                    </div>
-                </div>
-                <div class = "row">
-                    <div class = "col-md-2">
-                    <h3><span  style="margin-right:10px"class="badge badge-primary">Phone : </span></h3>
-                    </div>
-                    <div class = "col-md-10">
-                        <h3><?= $intern->phone ?></h3>
+                    <div class = "col-md-9">
+                        <h4><?= $intern->fname ?> <?= $intern->lname ?></h4>
                     </div>
                 </div>
                 <div class = "row">
-                    <div class = "col-md-2">
-                    <h3><span  style="margin-right:10px"class="badge badge-primary">Advisor : </span></h3>
+                    <div class = "col-md-3">
+                        <h4><span style="margin-right:10px"class="">Email : </span></h4>
                     </div>
-                    <div class = "col-md-10">
-                        <h3><?= $intern->advisor->fname ?></h3>
+                    <div class = "col-md-9">
+                        <h4><?= $user->email ?></h4>
                     </div>
                 </div>
                 <div class = "row">
-                    <div class = "col-md-2">
-                    <h3><span  style="margin-right:10px"class="badge badge-primary">Address : </span></h3>
+                    <div class = "col-md-3">
+                    <h4><span  style="margin-right:10px"class="">Phone : </span></h4>
                     </div>
-                    <div class = "col-md-10">
+                    <div class = "col-md-9">
+                        <h4><?= $intern->phone ?></h4>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-md-3">
+                    <h4><span  style="margin-right:10px"class="">Advisor : </span></h4>
+                    </div>
+                    <div class = "col-md-9">
+                        <h4><?php if(!empty($intern->advisor->fname)){
+                                        echo $intern->advisor->fname;
+                        } ?></h4>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-md-3">
+                    <h4><span  style="margin-right:10px"class="">Address : </span></h4>
+                    </div>
+                    <div class = "col-md-9">
                         <h4><?= $address->address ?></h4>
                     </div>
                 </div>
@@ -59,18 +69,22 @@
             </div>
             <div style="margin-top:10px" class = "card">
                 <div class = "card-body">
-                    <h1><span style="margin-bottom:10px"class="badge badge-danger">Education</span ></h1>         
-                    <?php foreach($intern->educations as $education){?>
-                         
-                    <?php } ?>
+                    <h1><span style="margin-bottom:10px"class="badge badge-danger">Education</span ></h1> 
+                    <ol>
+                        <?php foreach($intern->educations as $education){?>    
+                            <li><?= $education->type?></li>
+                        <?php } ?>
+                    </ol>
                 </div>
             </div>
             <div style="margin-top:10px" class = "card">
                 <div class = "card-body">
                     <h1><span style="margin-bottom:10px"class="badge badge-info">Achievement</span ></h1>         
+                    <ol>
                     <?php foreach($intern->achievements as $achievement){?>
-                         
+                        <li><?= $achievement->name?></li>
                     <?php } ?>
+                    </ol>
                 </div>
             </div>
         </div>
