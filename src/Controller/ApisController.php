@@ -10,9 +10,9 @@ use Cake\ORM\TableRegistry;
 class ApisController extends AppController{
    
   public function index(){
-
+    
   }
-
+  
   public function beforeFilter(Event $event)
   {
       parent::beforeFilter($event);
