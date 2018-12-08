@@ -159,6 +159,10 @@ class InternsController extends AppController{
 
 
     }
+
+    public function addCertificate(){
+        $this->request->allowMethod(['post']);
+    }
     public function beforeFilter(Event $event)
     {
 

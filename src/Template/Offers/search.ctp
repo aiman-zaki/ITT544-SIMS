@@ -9,6 +9,7 @@
     }
 
 </style>
+<div class = "container">
 <?= $this->Form->create(null) ?>
 <div class="input-group md-form form-sm form-2 pl-0">
   <input name="search" class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
@@ -18,7 +19,7 @@
 </div>
 
 <?= $this->Form->end() ?>
-<div class = "container">
+
     <?php if(!empty($offers)){
         foreach($offers as $offer) {?>
         <div class="card card-cascade wider" style="margin-bottom:10px">

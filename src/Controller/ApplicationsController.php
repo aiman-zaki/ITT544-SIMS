@@ -57,6 +57,14 @@ class ApplicationsController extends AppController{
         return $this->redirect(['controller'=>'Offers','action' => 'index']);
     
     }
+    public function pending($offer_id,$intern_id){
+        $this->request->allowMethod(['post', 'put']);
+        $application = $this->Applications->find()->where(['offer_id'=>$offer_id,'intern_id'=>$intern_id])->first();
+        $application->status = "Pending";
+        $this->Applications->save($application);
+        return $this->redirect(['controller'=>'Offers','action' => 'index']);
+    
+    }
 
 }
 ?>

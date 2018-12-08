@@ -10,6 +10,7 @@ class InternsTable extends Table{
     {
         $this->belongsTo('Users')
             ->setForeignKey('id');
+        $this->hasMany('Certificates');
         $this->hasMany('Applications');
         $this->hasMany('Educations');
         $this->hasMany('Achievements');

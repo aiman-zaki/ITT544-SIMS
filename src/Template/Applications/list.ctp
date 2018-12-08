@@ -22,8 +22,21 @@
                             </div>
                         </div>
                         <div class = "face back card">
-                            <div class = "card-body" style="min-height:300px">
-                                <?= $application->status ?>
+                        <?php $color = null; 
+                              $text = null;
+                            if($application->status == 'Approved'){
+                                $color = 'green';
+                                $text = 'Congratulations!';
+                            } elseif ($application->status == 'Denied') {
+                                $color = 'red';
+                                $text = 'Sorry';
+                            }else{
+                                $color = 'yellow';
+                                $text = "Waiting for company response";
+                            }?>
+                            <div class = "card-body white-text <?= $color ?>" style="min-height:300px">
+                                <h3><?= $text ?></h3>
+                                <h4><?= $application->status ?></h4>
 
                             </div>
                         </div>

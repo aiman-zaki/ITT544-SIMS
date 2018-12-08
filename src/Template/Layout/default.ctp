@@ -85,8 +85,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </nav>
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb indigo lighten-4">
+        <?php foreach ($urls as $url){ 
+            if($url != ''){   ?>
+            <li class="breadcrumb-item"><?= ucwords($url) ?><i class="fa fa-caret-right mx-2"
+          aria-hidden="true"></i></li>
+        <?php }
+        } ?>
+    </ol>
+  </nav>
 <?= $this->Flash->render() ?>
-    <div class="container" style="margin-top:20px">
+    <div class="" style="margin-top:">
         <?= $this->fetch('content') ?>
     </div>
     <footer>

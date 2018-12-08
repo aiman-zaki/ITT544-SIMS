@@ -77,6 +77,10 @@ class AppController extends Controller
        
         $sessionUser = $this->Auth->user();
         $this->set('session_user',$sessionUser);
+        $urls = $this->request->getRequestTarget();
+        $urls = explode("/",$urls);
+        $this->set('urls',$urls);
+ 
 
     }
     public function beforeFilter(Event $event)

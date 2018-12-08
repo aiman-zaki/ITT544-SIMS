@@ -1,4 +1,21 @@
 <div class = "container">
+<?= $this->Form->create(null,['action'=>'addReq','class' => 'text-center border border-light p-5']) ?>
+<h2 style="margin-bottom:20px"><span class="badge badge-primary">Add Additional Requirement</span></h2>
+<div class = "row">
+                <div class = "col-md-9">
+                    <div class = "md-form">
+                        <?= $this->Form->hidden('offer_id',['value'=>$offer_id]); ?>
+                        <?= $this->Form->control(('requirement'),[
+                            'class' => ['form-control']
+                        ]) ?>
+                    </div>
+                </div>
+                <div class = "col-md-3">
+                    <?= $this->Form->button('Add',['class'=>'btn btn-success']) ?>
+                </div>
+            </div>
+
+<?= $this->Form->end() ?>
 <?= $this->Form->create(($offer),['class' => 'text-center border border-light p-5'])?>
 
         <legend><?= __('Add Offers') ?></legend>
@@ -60,21 +77,5 @@
 <?= $this->Form->button(('Update'),['class' => 'btn btn-primary']); ?>
 <?= $this->Form->end() ?>
 
-<?= $this->Form->create(null,['action'=>'addReq','class' => 'text-center border border-light p-5']) ?>
-<h2 style="margin-bottom:20px"><span class="badge badge-primary">Add Additional Requirement</span></h2>
-<div class = "row">
-                <div class = "col-md-9">
-                    <div class = "md-form">
-                        <?= $this->Form->hidden('offer_id',['value'=>$offer_id]); ?>
-                        <?= $this->Form->control(('requirement'),[
-                            'class' => ['form-control']
-                        ]) ?>
-                    </div>
-                </div>
-                <div class = "col-md-3">
-                    <?= $this->Form->button('Add',['class'=>'btn btn-success']) ?>
-                </div>
-            </div>
 
-<?= $this->Form->end() ?>
 </div>

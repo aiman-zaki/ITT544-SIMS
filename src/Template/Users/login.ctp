@@ -1,5 +1,6 @@
 <!-- File: src/Template/Users/login.ctp -->
 
+<div class = "container">
 <div class="users form">
 <?= $this->Flash->render() ?>
 <?= $this->Form->create(null,['class'=>'text-center border border-light p-5']) ?>
@@ -15,4 +16,5 @@
     </fieldset>
 <?= $this->Form->button(__('Login'),['class' => 'btn btn-success']); ?>
 <?= $this->Form->end() ?>
+</div>
 </div>

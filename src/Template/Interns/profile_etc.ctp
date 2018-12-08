@@ -121,6 +121,28 @@
                         </div>
                     
                 <?= $this->Form->end() ?>
+
+                <h2 style="margin-top:30px;margin-bottom:20px"><span class="badge badge-primary">Certificates</span></h2>
+                <div class="accordion md-accordion" id="accordionAch" role="tablist" aria-multiselectable="true">   
+                    
+                    <?php foreach($achievements as $achievement){ ?>
+
+                        <div class = "card">
+                            <div class = "card-header" role = "tab" id = "heading2<?= $achievement->id ?>">
+                            </div>
+                        </div>
+
+                    <?php } ?>
+                </div>
+
+                <?= $this->Form->create(null,array('type' => 'file','class' => 'text-center border border-light p-5'))?>
+                    <div class="d-flex justify-content-center">
+                        <div class="btn waves-effect btn-outline-primary btn-sm btn-rounded">
+                            <?php echo $this->Form->control('certificate', array('type'=>'file','class'=>'','label'=> '')); ?>
+                        </div>
+                    </div>
+                <?= $this->Form->end() ?>
         </div>
+        
     </div>
 </div>
