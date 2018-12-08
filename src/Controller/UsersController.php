@@ -34,7 +34,6 @@ class UsersController extends AppController
     {
         $addresses = TableRegistry::get('addresses');
         $user = $this->Users->newEntity();
-        $address = $addresses->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
            
