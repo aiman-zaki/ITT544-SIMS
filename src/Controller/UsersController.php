@@ -34,6 +34,7 @@ class UsersController extends AppController
     {
         $addresses = TableRegistry::get('addresses');
         $user = $this->Users->newEntity();
+        $address = $addresses->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
            
@@ -43,8 +44,8 @@ class UsersController extends AppController
                         $intern = $interns->newEntity();
                         $intern->id = $user['id'];
                         $address->id = $user['id'];
-                        $education->id = $user['id'];
                         $interns->save($intern);
+                        $addresses->save($address);
                         $this->Flash->success(__('The user has been saved.'));
                         return $this->redirect(['action' => 'login']);
                     } else if($user['role_id'] == 1){
@@ -53,6 +54,7 @@ class UsersController extends AppController
                         $advisor->id = $user['id'];
                         $address->id = $user['id'];
                         $advisors->save($advisor);
+                        $addresses->save($address);
                         $this->Flash->success(__('The user has been saved.'));
                         return $this->redirect(['action' => 'login']);
                
@@ -62,6 +64,7 @@ class UsersController extends AppController
                         $company->id = $user['id'];
                         $address->id = $user['id'];
                         $companies->save($company);
+                        $addresses->save($address);
                         $this->Flash->success(__('The user has been saved.'));
                         return $this->redirect(['action' => 'login']);
                      }
