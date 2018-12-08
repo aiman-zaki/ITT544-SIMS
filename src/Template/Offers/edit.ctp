@@ -34,15 +34,22 @@
 
             ]) ?>
         </div>
-        <?php foreach($offer->requirements as $requirement){ ?>
-        <div class = "md-form">
-            <?= $this->Form->control(' ',[
-                'class' => ['form-control'],
-                'value' => $requirement->requirements,
-                 'disabled' => true,
-            ]) ?>
+        <div class = "row">
+            <?php foreach($offer->requirements as $requirement){ ?>
+            <div class ="col-md-9">
+                <div class = "md-form">
+                    <?= $this->Form->control(' ',[
+                        'class' => ['form-control'],
+                        'value' => $requirement->requirements,
+                        'disabled' => true,
+                    ]) ?>
+                </div>
             </div>
-        <?php } ?>
+            <div class = "col-md-3">
+                <?= $this->Html->link('Delete','/offers/deleteReq/'.$requirement->id.'/'.$offer->id,['class'=>'btn btn-outline-danger btn-rounded waves-effect'])?>
+            </div>
+            <?php } ?>
+        </div>
         <div class = "md-form">
             <?= $this->Form->textarea(('description'),[
                 'class' => ['md-textarea form-control']
@@ -54,6 +61,7 @@
 <?= $this->Form->end() ?>
 
 <?= $this->Form->create(null,['action'=>'addReq','class' => 'text-center border border-light p-5']) ?>
+<h2 style="margin-bottom:20px"><span class="badge badge-primary">Add Additional Requirement</span></h2>
 <div class = "row">
                 <div class = "col-md-9">
                     <div class = "md-form">
@@ -64,11 +72,9 @@
                     </div>
                 </div>
                 <div class = "col-md-3">
-                    <?= $this->Form->button('Add') ?>
+                    <?= $this->Form->button('Add',['class'=>'btn btn-success']) ?>
                 </div>
             </div>
 
 <?= $this->Form->end() ?>
 </div>
-
-

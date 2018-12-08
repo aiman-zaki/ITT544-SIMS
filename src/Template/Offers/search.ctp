@@ -9,7 +9,7 @@
     }
 
 </style>
-<?= $this->Form->create(null,['action'=>'search']) ?>
+<?= $this->Form->create(null) ?>
 <div class="input-group md-form form-sm form-2 pl-0">
   <input name="search" class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
   <div class="input-group-append">
@@ -19,7 +19,8 @@
 
 <?= $this->Form->end() ?>
 <div class = "container">
-    <?php foreach($offers as $offer) {?>
+    <?php if(!empty($offers)){
+        foreach($offers as $offer) {?>
         <div class="card card-cascade wider" style="margin-bottom:10px">
              <div class="view view-cascade gradient-card-header blue-gradient">
              <h2 class="card-header-title mb-3"> <?= $this->Html->link(''. $offer['title'] .'', '/offers/view/'.$offer['id']) ?></h2>
@@ -30,5 +31,6 @@
                 <?php  } ?>
             </div>
         </div>
-    <?php }?>
+    <?php }
+    }?>
 </div>

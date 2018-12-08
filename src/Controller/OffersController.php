@@ -20,6 +20,7 @@ class OffersController extends AppController{
             $this->set('offers',$query->all());
         }
     }
+
     public function login(){
 
     }
@@ -27,11 +28,12 @@ class OffersController extends AppController{
 
     }
     public function view($id){
-
+        $uid = $this->Auth->user('id');
+        $applications = TableRegistry::get('Applications');
         $companies = TableRegistry::get('companies');
         $address = TableRegistry::get('addresses');
         $offer = $this->Offers->get($id, [
-            'contain' => []
+            'contain' => ['Requirements']
         ]);
 
         $company = $companies->get($offer['company_id'],
@@ -42,10 +44,20 @@ class OffersController extends AppController{
         $address =$address->get($offer['company_id'],[
             'contain' => []
         ]);
+        
+        $bool = $applications->find('all')->where(['offer_id ='=>$id,'intern_id ='=>$uid]);
+
         $this->set('offer',$offer);
         $this->set('company',$company);
         $this->set('address',$address);
+        
+        if($bool->isEmpty()){
+            $this->set('disabled','');
+        } else {
+            $this->set('disabled','true');
+        }
     }   
+
 
     public function add(){
         $offer = $this->Offers->newEntity();
@@ -123,6 +135,39 @@ class OffersController extends AppController{
 
         return $this->redirect(['action' => 'edit',$id]);
         
+    }
+
+    public function deleteReq($id=null,$offer_id=null){
+        $requirements = TableRegistry::get('Requirements');
+        $this->Flash->success($id);
+        $requirement = $requirements->get($id,['containts'=>[]]);
+        $requirements->delete($requirement);
+
+        $this->redirect(['controller' => 'Offers', 'action' => 'edit',$offer_id]);
+    }
+
+    public function search(){
+        $search = null;
+        $offers = null;
+        $id = $this->Auth->user('id');
+        $role_id = $this->Auth->user('role_id');
+        if ($this->request->is(['patch', 'post', 'put'])){
+            $search = $this->request->getData()['search'];
+            if($role_id == 3){
+                $offers = $this->Offers->find('all')->where(['title LIKE' => '%'.$search.'%','company_id ='=> $id]);
+            } else {
+                $offers = $this->Offers->find('all')->where(['title LIKE' => '%'.$search.'%']);
+               
+            }    
+            $this->set('offers',$offers);
+            if(!empty($offers)){
+                $this->Flash->success("Result of Queries");
+            } else {
+                $this->Flash->error("No Data Matched");
+            }
+        } 
+       
+
     }
 
 

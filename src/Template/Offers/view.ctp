@@ -51,6 +51,9 @@
                     <div class = "col-md-12">
                         <ol>
                             <li><?= $offer->requirement?></li>
+                            <?php foreach($offer->requirements as $req){ ?>
+                            <li><?= $req->requirements?></li>
+                            <?php } ?>
                         </ol>
 
                     </div>
@@ -60,7 +63,7 @@
         <?php if($session_user['role_id'] == 2){ ?>
             <?= $this->Form->create(null,['url'=> ['controller'=>'Applications','action'=>'add']])?>
             <?= $this->Form->hidden(('offer_id'),['value'=> $offer['id']]) ?>
-            <?= $this->Form->button(__('Apply'),['class' => 'btn btn-info btn-block my-4']); ?>
+            <?= $this->Form->button(__('Apply'),['class' => 'btn btn-info btn-block my-4','disabled'=>$disabled]); ?>
             <?= $this->Form->end() ?>
         <?php }?> 
     </div>
