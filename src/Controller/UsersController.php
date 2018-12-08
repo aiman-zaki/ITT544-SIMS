@@ -41,7 +41,6 @@ class UsersController extends AppController
                     if($user['role_id'] == 2){
                         $interns = TableRegistry::get('Interns');
                         $intern = $interns->newEntity();
-                        $education = $educations->newEntity();
                         $intern->id = $user['id'];
                         $address->id = $user['id'];
                         $education->id = $user['id'];
