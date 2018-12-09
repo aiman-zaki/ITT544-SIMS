@@ -35,7 +35,10 @@ $cakeDescription = 'InternStreet: the fastest way to get internship';
 <body>
 
 <nav class = "navbar navbar-expand-lg navbar-dark primary-color">
+    
     <?php echo $this->Html->link($this->fetch('title'),'/',['class'=>'navbar-brand']) ?>
+    <?php echo '<a href="ITT544-SIMS/users/profile">Profile</a>';?>
+
     <div class = "dropdown ml-auto">
     <?php if($session_user['email'] != null){?>
         <button class="btn btn-outline-white btn-md dropdown  mr-4" type="button" id="dropdownMenu1" data-toggle="dropdown"
