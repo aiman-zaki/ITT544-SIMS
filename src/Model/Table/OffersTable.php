@@ -16,6 +16,12 @@ class OffersTable extends Table
         $this->hasMany('Requirements',['dependent' => true]);
         $this->hasMany('Applications',['dependent' => true]);
     }
+    public function validationDefault(Validator $validator)
+    {
+        return $validator
+            ->notEmpty('id', 'A id is required');
+
+    }
 
 }
 ?>

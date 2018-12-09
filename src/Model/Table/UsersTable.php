@@ -12,8 +12,12 @@ class UsersTable extends Table
         $this->hasOne('Addresses')
             ->primaryKey('id');
 
-        $this->hasMany('Interns',['dependent' => true]);
-        $this->hasMany('Advisors',['dependent' => true]);
+        $this->hasMany('Interns',[
+            'dependent' => true,
+            'foreignKey' => 'id'
+            ]);
+
+        $this->hasMany('Advisors',['dependent' => true, 'foreignKey' => 'id']);
         $this->hasMany('Companies',['dependent' => true]);
     }
     public function validationDefault(Validator $validator)
