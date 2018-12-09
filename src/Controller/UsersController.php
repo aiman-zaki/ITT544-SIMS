@@ -25,6 +25,11 @@ class UsersController extends AppController
         $this->set('users', $this->Users->find('all'));
     }
 
+    public function offers()
+    {
+      echo "<a href='/offers'> </a>";
+    }
+
     public function view($id)
     {
         $user = $this->Users->get($id);
@@ -78,10 +83,18 @@ class UsersController extends AppController
     {
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
-            if ($user) {
+            if($user['role_id'] == 1){
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
+            else if($user['role_id'] == 2){
+                $this->Auth->setUser($user);
+                return $this->Auth->allow('offers');
+            }
+            else if($user['role_id'] == 3){
+                $this->Auth->setUser($user);
+                return $this->Auth->allow('offers');
+            } 
             $this->Flash->error(__('Invalid email or password, try again'));
         }
     }
