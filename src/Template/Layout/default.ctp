@@ -36,9 +36,19 @@ $cakeDescription = 'InternStreet: the fastest way to get internship';
 
 <nav class = "navbar navbar-expand-lg navbar-dark primary-color">
     
-    <?php echo $this->Html->link($this->fetch('title'),'/',['class'=>'navbar-brand']) ?>
-    <?php echo '<a href="ITT544-SIMS/users/profile">Profile</a>';?>
-
+    <?php echo $this->Html->link($this->fetch('title'),'/',['class'=>'navbar-brand']) ?> 
+    <?php if($session_user['role_id'] != 3){?>
+        <?php echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand'])?>
+        </button>
+        <div class="dropdown-menu">
+        <?php    
+        }else if($session_user['role_id'] == 3){?> 
+        <?php  
+            echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand']); 
+            echo $this->Html->link('Add Offer','/offers/add',['class'=>'navbar-brand']);                 
+         }?>    
+    </div>      
+    <?php echo $this->Html->link('APIs','/apis',['class'=>'navbar-brand']) ?>   
     <div class = "dropdown ml-auto">
     <?php if($session_user['email'] != null){?>
         <button class="btn btn-outline-white btn-md dropdown  mr-4" type="button" id="dropdownMenu1" data-toggle="dropdown"

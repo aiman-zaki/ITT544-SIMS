@@ -82,15 +82,15 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if($user['role_id'] == 1){
                 $this->Auth->setUser($user);
-                return $this->Auth->allow($this->redirect(array('action' => 'profile')));
+                return $this->Auth->allow($this->redirect(array('controller'=>'pages','action' => 'index')));
             }
             else if($user['role_id'] == 2){
                 $this->Auth->setUser($user);
-                return $this->Auth->allow($this->redirect(array('action' => 'profile')));
+                return $this->Auth->allow($this->redirect(array('controller'=>'pages','action' => 'index')));
             }
             else if($user['role_id'] == 3){
                 $this->Auth->setUser($user);
-                return $this->Auth->allow($this->redirect(array('action' => 'profile')));
+                return $this->Auth->allow($this->redirect(array('controller'=>'pages','action' => 'index')));
             } 
             $this->Flash->error(__('Invalid email or password, try again'));
         }
