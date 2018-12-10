@@ -32,7 +32,7 @@
                 <h3>GET</h3>
                 <h5>Parameter</h5>
                 <h5>none</h5>       
-                <a href="/feather-basic/users" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/users' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
                 <hr/>
                 <p class="p-md-4 mb-0">
                 </p>
-                <a href="/feather-basic/interns" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/interns' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
@@ -135,7 +135,7 @@
                     </tr>
                 </table>
                 <hr/>
-                <a href="/feather-basic/companies" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/companies' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
@@ -167,7 +167,7 @@
                 <hr/>
                 <p class="p-md-4 mb-0">
                 </p>
-                <h3>PATCH</h4>
+                <h3>PATCH</h3>
                 <table>
                     <tr>
                         <td>Parameter</td>
@@ -191,7 +191,7 @@
                     <tr>
                 </table>
                 <hr/>
-                <a href="/feather-basic/advisors" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/advisors' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
@@ -291,9 +291,19 @@
                     </tr>
                 </table>
                 <hr/>
+                <h3>DELETE</h3>
+                <table>
+                    <tr>
+                      <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                </table>
                 <p class="p-md-4 mb-0">
                 </p>
-                <a href="/feather-basic/offers" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/offers' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
