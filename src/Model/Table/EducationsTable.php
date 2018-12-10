@@ -10,9 +10,10 @@ class EducationsTable extends Table{
     public function initialize(array $config){
 
         parent::initialize($config);
-        
-        $this->belongsTo('Interns')
-            ->foreignKey('interns_id');
+        $this->belongsTo('Interns',[
+            'foreignKey' => 'intern_id'
+        ]);
+  
     }
 
 

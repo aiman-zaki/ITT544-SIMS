@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<div class = "card text-center">
-  <div class = "card-body">
-      
-
-  </div>
-</div>
-<div class = "card text-center">
-    <div class = "card-body">
-  
-      
-    </div>
-  </div>
-=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,4 +123,3 @@
   </body>
 
 </html>
->>>>>>> eb698a7dca406e4be9c3aabff144a2f45fa50141
