@@ -39,21 +39,20 @@ $cakeDescription = 'InternStreet: the fastest way to get internship';
     <?php echo $this->Html->link($this->fetch('title'),'/',['class'=>'navbar-brand']) ?> 
     <?php if($session_user['role_id'] == 2){?>
         <?php echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand'])?>
-        </button>
-        <div class="dropdown-menu">
-        <?php    
-        }else if($session_user['role_id'] == 3){?> 
-        <?php  
-            echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand']); 
-            echo $this->Html->link('Add Offer','/offers/add',['class'=>'navbar-brand']);                 
-        ?>
-        <?php    
-        }else if($session_user['role_id'] == 1){?> 
-        <?php  
-            echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand']); 
-            echo $this->Html->link('List','/interns',['class'=>'navbar-brand']);                 
-        }?>      
-    </div>      
+            <div class="dropdown-menu">
+                <?php    
+                    }else if($session_user['role_id'] == 3){?> 
+                <?php  
+                        echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand']); 
+                        echo $this->Html->link('Add Offer','/offers/add',['class'=>'navbar-brand']);                 
+                ?>
+                <?php    
+                    }else if($session_user['role_id'] == 1){?> 
+                <?php  
+                        echo $this->Html->link('Offer','/offers',['class'=>'navbar-brand']); 
+                        echo $this->Html->link('List','/interns',['class'=>'navbar-brand']);                 
+                }?>      
+            </div>      
     <?php echo $this->Html->link('APIs','/apis',['class'=>'navbar-brand']) ?>   
     <div class = "dropdown ml-auto">
     <?php if($session_user['email'] != null){?>
