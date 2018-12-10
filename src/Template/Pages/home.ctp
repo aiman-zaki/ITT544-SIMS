@@ -32,7 +32,7 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Start your intern by using the faster way by using this fricking system</p>
+            <p class="text-faded mb-5">Start your intern by using the faster way by find it here</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="/ITT544-SIMS/users/add">Register now!!</a>
           </div>
         </div>
