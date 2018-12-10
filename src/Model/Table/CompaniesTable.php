@@ -4,7 +4,7 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\Validation\Validator;
+
 
 class CompaniesTable extends Table
 {
@@ -18,10 +18,6 @@ class CompaniesTable extends Table
         $this->hasMany('Offers');
 
     }
-    public function validationDefault(Validator $validator)
-    {
-      
-    
-    }
+
 }
 

@@ -32,8 +32,13 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
+<<<<<<< HEAD
             <p class="text-faded mb-5">Start your intern by using the faster way by find it here</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="/ITT544-SIMS/users/add">Register now!!</a>
+=======
+            <p class="text-faded mb-5">Start your intern by using the faster way by using this fricking system</p>
+            <?= $this->Html->link('Register now','/users/add',['class'=>'btn btn-light btn-xl js-scroll-trigger']) ?>
+>>>>>>> 8dad399e79bf602ea8d85fd6755f84a10668fb93
           </div>
         </div>
       </div>
@@ -46,7 +51,7 @@
             <h2 class="section-heading text-white">Company!!! We got what you need!</h2>
             <hr class="light my-4">
             <p class="text-faded mb-4">Starting to find your intern and publish your internship here!</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="/ITT544-SIMS/users/add">Get Started!</a>
+            <?= $this->Html->link('Get Started','/users/add',['class'=>'btn btn-light btn-xl js-scroll-trigger']) ?>
           </div>
         </div>
       </div>

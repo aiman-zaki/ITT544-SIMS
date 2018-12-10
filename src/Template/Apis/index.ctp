@@ -26,10 +26,13 @@
             <!-- Card body -->
             <div id="collapse30" class="collapse" role="tabpanel" aria-labelledby="heading30" data-parent="#accordionEx5">
               <div class="card-body rgba-black-light white-text z-depth-1">
-                <p class="p-md-4 mb-0">
-                Data that in users who is using this system.
-                <a href="/feather-basic/users" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
-                </p>
+                <h2>Resource URL</h2>
+                <h4>api/users</h4>
+                <hr/>
+                <h3>GET</h3>
+                <h5>Parameter</h5>
+                <h5>none</h5>       
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/users' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
               </div>
             </div>
           </div>
@@ -52,9 +55,41 @@
             <!-- Card body -->
             <div id="collapse32" class="collapse" role="tabpanel" aria-labelledby="heading32" data-parent="#accordionEx5">
               <div class="card-body rgba-black-light white-text z-depth-1">
+              <h2>Resource URL</h2>
+              <h3>api/interns</h3>
+                <hr/>
+                <h3>GET</h3>
+                <h6>no parameter</h6>
+                <hr/>
                 <p class="p-md-4 mb-0">
-                Student that want to find internship.
-                <a href="/feather-basic/interns" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                </p>
+                <h3>PATCH</h4>
+                <table>
+                    <tr>
+                        <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>fname</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>lname</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>phone</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                </table>
+                <hr/>
+                <p class="p-md-4 mb-0">
+                </p>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/interns' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
@@ -78,9 +113,29 @@
             <!-- Card body -->
             <div id="collapse33" class="collapse" role="tabpanel" aria-labelledby="heading33" data-parent="#accordionEx5">
               <div class="card-body rgba-black-light white-text z-depth-1">
+              <h2>Resource URL</h2>
+              <hr/>
+                <h3>GET</h3>
+                <h6>no parameter</h6>
+                <hr/>
                 <p class="p-md-4 mb-0">
-                Companies that want to find internship student.
-                <a href="/feather-basic/companies" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                </p>
+                <h3>PATCH</h4>
+                <table>
+                    <tr>
+                        <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>name</td>
+                       <td>no</td>
+                    </tr>
+                </table>
+                <hr/>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/companies' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
@@ -104,66 +159,44 @@
             <!-- Card body -->
             <div id="collapse34" class="collapse" role="tabpanel" aria-labelledby="heading34" data-parent="#accordionEx5">
               <div class="card-body rgba-black-light white-text z-depth-1">
+              <h2>Resource URL</h2>
+              <h4>api/advisors</h4>
+              <hr/>
+                <h3>GET</h3>
+                <h6>no parameter</h6>
+                <hr/>
                 <p class="p-md-4 mb-0">
-                takde pape senarnya.
-                <a href="/feather-basic/advisors" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                </p>
+                <h3>PATCH</h3>
+                <table>
+                    <tr>
+                        <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>fname</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>lname</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>room</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                </table>
+                <hr/>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/advisors' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>
           </div>
           <!-- Accordion card -->
-        <!-- Accordion card -->
-          <div class="card mb-4">
-
-            <!-- Card header -->
-            <div class="card-header p-1 z-depth-1" role="tab" id="heading35">
-              <a data-toggle="collapse" data-parent="#accordionEx5" href="#collapse35" aria-expanded="true"
-                aria-controls="collapse35">
-                <i class="fa fa-cloud fa-2x p-3 mr-4 float-left black-text" aria-hidden="true"></i>
-                <h4 class="text-uppercase white-text mb-0 py-3 mt-1">
-                  Addresses
-                </h4>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapse35" class="collapse" role="tabpanel" aria-labelledby="heading35" data-parent="#accordionEx5">
-              <div class="card-body rgba-black-light white-text z-depth-1">
-                <p class="p-md-4 mb-0">
-                All addresses that in Users which divided into three data which is Advisors, Companies and Interns.
-                <a href="/feather-basic/addresses" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          <div class="card mb-4">
-
-            <!-- Card header -->
-            <div class="card-header p-1 z-depth-1" role="tab" id="heading36">
-              <a data-toggle="collapse" data-parent="#accordionEx5" href="#collapse36" aria-expanded="true"
-                aria-controls="collapse36">
-                <i class="fa fa-cloud fa-2x p-3 mr-4 float-left black-text" aria-hidden="true"></i>
-                <h4 class="text-uppercase white-text mb-0 py-3 mt-1">
-                  Roles
-                </h4>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapse36" class="collapse" role="tabpanel" aria-labelledby="heading36" data-parent="#accordionEx5">
-              <div class="card-body rgba-black-light white-text z-depth-1">
-                <p class="p-md-4 mb-0">
-                Roles that have been divided into three roles with different services and actions.
-                <a href="/feather-basic/roles" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Accordion card -->
-
           <!-- Accordion card -->
           <div class="card mb-4">
 
@@ -181,9 +214,96 @@
             <!-- Card body -->
             <div id="collapse37" class="collapse" role="tabpanel" aria-labelledby="heading37" data-parent="#accordionEx5">
               <div class="card-body rgba-black-light white-text z-depth-1">
+              <h2>Resource URL</h2>
+              <h3>api/offers</h3>
+                <hr/>
+                <h3>GET</h3>
+                <h6>no parameter</h6>
+                <h3>POST</h4>
+                <table>
+                    <tr>
+                      <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>title</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>enddate</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>startdate</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>requirement</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>company_id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>status</td>
+                       <td>Active/Pending/Denied</td>
+                    </tr>
+                </table>
+                <hr/>
                 <p class="p-md-4 mb-0">
-                The offers that companies give into the intern.
-                <a href="/feather-basic/offers" class="white-text d-flex justify-content-end"><h5>Data <i class="fa fa-angle-double-right"></i></h5></a>
+                </p>
+                <h3>PATCH</h4>
+                <table>
+                    <tr>
+                      <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>title</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>enddate</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>startdate</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>requirement</td>
+                       <td>no</td>
+                    </tr>
+                    <tr>
+                       <td>company_id</td>
+                       <td>required</td>
+                    </tr>
+                    <tr>
+                       <td>status</td>
+                       <td>Active/Pending/Denied</td>
+                    </tr>
+                </table>
+                <hr/>
+                <h3>DELETE</h3>
+                <table>
+                    <tr>
+                      <td>Parameter</td>
+                    </tr>
+                    <tr>
+                       <td>id</td>
+                       <td>required</td>
+                    </tr>
+                </table>
+                <p class="p-md-4 mb-0">
+                </p>
+                <?= $this->Html->link('<h5>Data <i class="fa fa-angle-double-right"></i></h5>', '/api/offers' ,['class'=>'white-text d-flex justify-content-end','escape' => false])?>
                 </p>
               </div>
             </div>

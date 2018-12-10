@@ -13,8 +13,8 @@ class InternsTable extends Table{
         $this->hasMany('Applications',['dependent' => true]);
         $this->hasMany('Educations',['dependent' => true]);
         $this->hasMany('Achievements',['dependent' => true]);
-        $this->belongsTo('Advisor',[
-            'foreignKey' => 'intern_id',
+        $this->belongsTo('Advisors',[
+            'foreignKey' => 'id',
             ]);
     }
   
