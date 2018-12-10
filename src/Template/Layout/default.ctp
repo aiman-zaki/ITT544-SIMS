@@ -107,11 +107,9 @@ $cakeDescription = 'InternStreet: the fastest way to get internship';
         <?php }
         } ?>
     </ol>
-  </nav>
+</nav>
 <?= $this->Flash->render() ?>
-    <div class="" style="margin-top:">
         <?= $this->fetch('content') ?>
-    </div>
     <footer>
     </footer>
 
