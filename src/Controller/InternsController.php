@@ -10,9 +10,10 @@ class InternsController extends AppController{
    
     public function index(){
         $users = TableRegistry::get('Users');
-        $query = $users->find()->where(['role_id' => 2]);
-
+        $query = $users->find()->where(['role_id' => 2]);    
         $this->set('interns',$query->all());
+
+
     }
     public function login(){
 
