@@ -27,7 +27,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'InternStreet: the fastest way to get internship';
 ?>
 <!DOCTYPE html>
 <html>
