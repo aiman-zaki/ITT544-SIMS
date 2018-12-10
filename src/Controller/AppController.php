@@ -26,6 +26,7 @@ use Cake\Event\Event;
  * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller
+
 {
 
     /**
@@ -65,7 +66,7 @@ class AppController extends Controller
                 ]
             ],
         ]);
-        
+        $this->loadComponent('RequestHandler');
         
         /*
          * Enable the following component for recommended CakePHP security settings.

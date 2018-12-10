@@ -16,5 +16,12 @@ class RequirementsTable extends Table
 
     }
 
+    public function validationDefault(Validator $validator)
+    {
+        return $validator
+            ->notEmpty('id', 'A id is required');
+
+    }
+
 }
 ?>

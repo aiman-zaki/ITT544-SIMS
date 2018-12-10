@@ -10,11 +10,15 @@ class UsersTable extends Table
     public function initialize(array $config)
     {
         $this->hasOne('Addresses')
-            ->primaryKey('id');
+            ->setDependent(true)
+            ->setForeignKey('id');
 
-        $this->hasMany('Interns',['dependent' => true]);
-        $this->hasMany('Advisors',['dependent' => true]);
-        $this->hasMany('Companies',['dependent' => true]);
+        $this->hasMany('Interns',[
+             'foreignKey' => 'id',
+             'dependent' => true
+            ]);
+        $this->hasMany('Advisors',['foreignKey' => 'id'])->setDependent(true);
+        $this->hasMany('Companies',['foreignKey' => 'id'])->setDependent(true);
     }
     public function validationDefault(Validator $validator)
     {

@@ -9,8 +9,7 @@ class AchievementsTable extends Table{
 
     public function initialize(array $config)
     {
-        $this->belongsTo('Interns')
-            ->setForeignKey('intern_id');
+        $this->belongsTo('Interns',['foreignKey' => 'intern_id' ]);
     }
 
 }

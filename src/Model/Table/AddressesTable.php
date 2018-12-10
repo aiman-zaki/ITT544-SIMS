@@ -9,8 +9,7 @@ class AddressesTable extends Table{
 
     public function initialize(array $config)
     {
-        $this->belongsTo('Users')
-            ->foreignKey('id');
+        $this->belongsTo('Users')->setForeignKey('id');
     }
     public function validationDefault(Validator $validator)
     {
